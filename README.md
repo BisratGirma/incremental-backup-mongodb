@@ -8,4 +8,4 @@
 4. at the end of the line add `* * * * * /bin/sh $path/scripts/mongodb-backup.sh`
 
 N.B: replace $path with the absolute path to the scripts folder
-* * * * * - means the script will run every minute to replace with your own cron schedule visit https://crontab-generator.org/ will help you generate a cron schedule
+`* * * * *` - means the script will run every minute to replace with your own cron schedule visit https://crontab-generator.org/ will help you generate a cron schedule
