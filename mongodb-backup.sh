@@ -1,16 +1,16 @@
 #!/bin/bash
 
 # MongoDB connection details
-HOST="localhost"
-PORT="27017"
-DB="mineral"
+HOST="--host"
+PORT="--port"
+DB="--database_name"
 
 # Backup directory
-BACKUP_DIR="/home/elst/Documents/practice/scripts/backups/"
+BACKUP_DIR="absolute_path_of_the_backup_folder"
 
 TEMP_DIR=$(mktemp -d)
 
-# dump mongo database to temporary directory
+# dump the Mongo database to the temporary directory
 mongodump --host "$HOST" --port "$PORT" --db "$DB" --out "$TEMP_DIR"
 
 # Rename the backup file with the current timestamp
