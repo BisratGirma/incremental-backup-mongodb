@@ -5,9 +5,9 @@ HOST="--host"
 PORT="--port"
 DB="--database_name"
 
-# HOST="localhost"
-# PORT="27017"
-# DB="dbname"
+intial_backup_date="Sep 01 2015 00:00:00"
+
+CURRENT_TIMESTAMP=$(date +%FT%T%z)
 
 # the backup directory
 BACKUP_DIR="absolute_path_of_backup_folder"
@@ -19,14 +19,12 @@ if [ -f "${BACKUP_DIR}last_backup_timestamp.txt" ]; then
     LAST_BACKUP_TIMESTAMP=$(cat "${BACKUP_DIR}last_backup_timestamp.txt")
 else
 
-    LAST_BACKUP_TIMESTAMP=$(date -d "Sep 01 2015 00:00:00" +%FT%T%z)
+    LAST_BACKUP_TIMESTAMP=$(date -d "$intial_backup_date" +%FT%T%z)
 fi
-
-CURRENT_TIMESTAMP=$(date +%FT%T%z)
 
 TEMP_DIR=$(mktemp -d)
 
-# interate over collections dump mongodump to temprary file
+# interate over collections and dump mongodump to temprary file
 for collection in $collections
 do
 
