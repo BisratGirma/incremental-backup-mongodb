@@ -1,4 +1,5 @@
 # mongodump scripts
+### Not applicable in db that contain large datas unless the db is replicated
 
 ## To make this dump repititive in ubuntu/linux
 
